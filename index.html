@@ -15,8 +15,8 @@
                 <li>Overview</li>
                 <li>
                     <div class="dropdown">
-                        <button class="dropbtn">Reports ▾</button>
-                        <div class="dropdown-content">
+                        <button class="dropbtn" onclick="show_reports()">Reports ▾</button>
+                        <div class="dropdown-content-1">
                             <a href="#">Daily</a>
                             <a href="#">Weekly</a>
                             <a href="#">Monthly</a>
@@ -24,18 +24,14 @@
                     </div>
                 </li>
                 <li>
-                    <select name="reports" id="reports">
-                        <option value="volvo">Daily</option>
-                        <option value="saab">Weekly</option>
-                        <option value="opel">Monthly</option>
-                    </select>
-                </li>
-                <li>
-                    <select name="reports" id="reports">
-                        <option value="volvo">Traffic</option>
-                        <option value="saab">Conversions</option>
-                        <option value="opel">Performance</option>
-                    </select>
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="show_analytics()">Analytics ▾</button>
+                        <div class="dropdown-content-2">
+                            <a href="#">Traffic</a>
+                            <a href="#">Conversions</a>
+                            <a href="#">Performance</a>
+                        </div>
+                    </div>
                 </li>
                 <li>Export</li>
             </ul>
@@ -69,12 +65,12 @@
             </div>
             <!-- Chart -->
             <div class="chart">
-                <canvas id="myChart" style="border:1px solid"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
             <!-- Item Table -->
             <div class="item-table">
-                <input type="text" name="Search" id="search" placeholder="Search Table ...">
-                <table>
+                <input type="text" name="Search" id="search" placeholder="Search Table ..." onkeyup="search_item()">
+                <table id="items-table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -113,7 +109,7 @@
     </div>
 
     <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         const ctx = document.getElementById('myChart');
@@ -125,7 +121,23 @@
             datasets: [{
                 label: '# of Votes',
                 data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
             }]
             },
             options: {
