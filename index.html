@@ -8,11 +8,47 @@
 </head>
 <body>
     <div class="dashboard">
+        <!-- Dashboard Navbar -->
+        <nav id="navbar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li>Overview</li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Reports ▾</button>
+                        <div class="dropdown-content">
+                            <a href="#">Daily</a>
+                            <a href="#">Weekly</a>
+                            <a href="#">Monthly</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <select name="reports" id="reports">
+                        <option value="volvo">Daily</option>
+                        <option value="saab">Weekly</option>
+                        <option value="opel">Monthly</option>
+                    </select>
+                </li>
+                <li>
+                    <select name="reports" id="reports">
+                        <option value="volvo">Traffic</option>
+                        <option value="saab">Conversions</option>
+                        <option value="opel">Performance</option>
+                    </select>
+                </li>
+                <li>Export</li>
+            </ul>
+        </nav>
+
+        <!-- Dashboard Overview -->
         <section id="overview">
+            <!-- Header -->
             <div class="header">
                 <h1>Dashboard Overview</h1>
                 <button id="toggle-theme">Toggle Theme</button>
             </div>
+            <!-- Statistics -->
             <div class="statistics">
                 <div class="sales stats">
                     <h2>Sales</h2>
@@ -31,10 +67,75 @@
                     <p>Total Revenue: $45,676</p>
                 </div>
             </div>
+            <!-- Chart -->
             <div class="chart">
-                
+                <canvas id="myChart" style="border:1px solid"></canvas>
             </div>
+            <!-- Item Table -->
+            <div class="item-table">
+                <input type="text" name="Search" id="search" placeholder="Search Table ...">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>   
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Item Alpha</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Item Beta</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>Item Gamma</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>Item Delta</td>
+                            <td>400</td>
+                        </tr>
+                        <tr>
+                            <td>Item Epsilon</td>
+                            <td>500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Copyrights -->
+             <div class="copyrights">
+                <p>© 2025 Responsive Dashboard. All rights reserved.</p>
+             </div>
         </section>
     </div>
+
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+            },
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+    </script>
 </body>
 </html>
