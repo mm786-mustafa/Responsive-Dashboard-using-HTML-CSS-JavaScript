@@ -4,19 +4,24 @@ const dashboard_overview = document.getElementById("overview");
 const navbar = document.getElementById("navbar");
 const stats = document.getElementsByClassName("stats");
 const search_bar = document.getElementById("search");
+const th = document.querySelectorAll("th");
+const dropdown_button = document.getElementsByClassName("dropdown-btn");
 
 dark_theme = () => {
   body.style.backgroundColor = '#242526';
   dashboard_overview.style.color = "white";
   navbar.style.backgroundColor = "#18191a";
-  // dashboard_overview.style.backgroundColor = '#242526';
   dashboard_overview.children[2].style.backgroundColor = "#3a3b3c";
   dashboard_overview.children[2].style.boxShadow = "none";
   dashboard_overview.children[3].style.backgroundColor = "#3a3b3c";
   dashboard_overview.children[3].style.boxShadow = "none";
   dashboard_overview.lastElementChild.style.backgroundColor = "#18191a";
-  document.body.querySelectorAll("th")[0].style.backgroundColor = "#4e4f50";
-  document.body.querySelectorAll("th")[1].style.backgroundColor = "#4e4f50";
+  for (let i=0; i<dropdown_button.length; i++) {
+    dropdown_button[i].style.backgroundColor = "#18191a";
+  }
+  for (let i=0; i<th.length; i++) {
+      th[i].style.backgroundColor = "#4e4f50";
+  }
   for (let i=0; i<stats.length; i++) {
       stats[i].style.backgroundColor = "#3a3b3c";
       stats[i].style.boxShadow = "none";
@@ -27,14 +32,17 @@ light_theme = () => {
   body.style.backgroundColor = '#f4f6f8';
   dashboard_overview.style.color = "black";
   navbar.style.backgroundColor = "#2f4050";
-  // dashboard_overview.style.backgroundColor = '#242526';
   dashboard_overview.children[2].style.backgroundColor = "white";
   dashboard_overview.children[2].style.boxShadow = "0 3px 18px #e5e7e8";
   dashboard_overview.children[3].style.backgroundColor = "white";
   dashboard_overview.children[3].style.boxShadow = "0 3px 18px #e5e7e8";
   dashboard_overview.lastElementChild.style.backgroundColor = "#2f4050";
-  document.body.querySelectorAll("th")[0].style.backgroundColor = "#f0f0f0";
-  document.body.querySelectorAll("th")[1].style.backgroundColor = "#f0f0f0";
+  for (let i=0; i<dropdown_button.length; i++) {
+      dropdown_button[i].style.backgroundColor = "#2f4050";
+  }
+  for (let i=0; i<th.length; i++) {
+      th[i].style.backgroundColor = "#f0f0f0";
+  }
   for (let i=0; i<stats.length; i++) {
       stats[i].style.backgroundColor = "white";
       stats[i].style.boxShadow = "0 3px 18px #e5e7e8";
