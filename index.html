@@ -1,3 +1,4 @@
+<!-- M.Mustafa - 221383 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,36 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="dashboard">
         <!-- Dashboard Navbar -->
         <nav id="navbar">
-            <h2>Dashboard</h2>
-            <ul>
-                <li>Overview</li>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropdown-btn" onclick="show_reports()">Reports ▾</button>
-                        <div class="dropdown-content-1">
-                            <a href="#">Daily</a>
-                            <a href="#">Weekly</a>
-                            <a href="#">Monthly</a>
+            <button id="bar-icon" onclick="display_navbar_content()"><i class="fa-solid fa-bars"></i></button>
+            <div class="navbar-content">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li>Overview</li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" onclick="show_reports()">Reports ▾</button>
+                            <div class="dropdown-content-1">
+                                <a href="#">Daily</a>
+                                <a href="#">Weekly</a>
+                                <a href="#">Monthly</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropdown-btn" onclick="show_analytics()">Analytics ▾</button>
-                        <div class="dropdown-content-2">
-                            <a href="#">Traffic</a>
-                            <a href="#">Conversions</a>
-                            <a href="#">Performance</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" onclick="show_analytics()">Analytics ▾</button>
+                            <div class="dropdown-content-2">
+                                <a href="#">Traffic</a>
+                                <a href="#">Conversions</a>
+                                <a href="#">Performance</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>Export</li>
-            </ul>
+                    </li>
+                    <li>Export</li>
+                </ul>
+            </div>
+            
         </nav>
 
         <!-- Dashboard Overview -->

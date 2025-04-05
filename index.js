@@ -1,11 +1,46 @@
 const body = document.body;
-const theme_toggler = document.getElementById("toggle-theme");
 const dashboard_overview = document.getElementById("overview");
 const navbar = document.getElementById("navbar");
+const dropdown_button = document.getElementsByClassName("dropdown-btn");
+const navbar_content = document.getElementsByClassName("navbar-content")[0];
 const stats = document.getElementsByClassName("stats");
 const search_bar = document.getElementById("search");
 const th = document.querySelectorAll("th");
-const dropdown_button = document.getElementsByClassName("dropdown-btn");
+const theme_toggler = document.getElementById("toggle-theme");
+
+show_reports = () => {
+  const reports = document.getElementsByClassName("dropdown-content-1")[0];
+  const display_attribute = window.getComputedStyle(reports).display;
+  reports.style.display = display_attribute === "none" ? "block" : "none";
+}
+
+show_analytics = () => {
+  const analytics = document.getElementsByClassName("dropdown-content-2")[0];
+  const display_attribute = window.getComputedStyle(analytics).display;
+  analytics.style.display = display_attribute === "none" ? "block" : "none";
+}
+
+display_navbar_content = () => {
+  const display_attribute = window.getComputedStyle(navbar_content).display;
+  navbar_content.style.display = display_attribute === "none" ? "block" : "none";
+}
+
+search_item = () => {
+  let search_value = search_bar.value.toLowerCase();
+  let table = document.getElementById("items-table");
+  let tr = table.getElementsByTagName("tr");
+  for (let i=0; i<tr.length; i++) {
+      let td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+          let txt_value = td.textContent || td.innerText;
+          if (txt_value.toLowerCase().indexOf(search_value) > -1) {
+              tr[i].style.display = "";
+          } else {
+              tr[i].style.display = "none";
+          }
+      } 
+  }
+}
 
 dark_theme = () => {
   body.style.backgroundColor = '#242526';
@@ -62,32 +97,3 @@ change_theme = () => {
 }
 
 theme_toggler.addEventListener('click', change_theme);
-
-function search_item() {
-    let search_value = search_bar.value.toLowerCase();
-    let table = document.getElementById("items-table");
-    let tr = table.getElementsByTagName("tr");
-    for (let i=0; i<tr.length; i++) {
-        let td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            let txt_value = td.textContent || td.innerText;
-            if (txt_value.toLowerCase().indexOf(search_value) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        } 
-    }
-}
-
-function show_reports() {
-  const reports = document.getElementsByClassName("dropdown-content-1")[0];
-  const display_attribute = window.getComputedStyle(reports).display;
-  reports.style.display = display_attribute === "none" ? "block" : "none";
-}
-
-function show_analytics() {
-  const analytics = document.getElementsByClassName("dropdown-content-2")[0];
-  const display_attribute = window.getComputedStyle(analytics).display;
-  analytics.style.display = display_attribute === "none" ? "block" : "none";
-}
